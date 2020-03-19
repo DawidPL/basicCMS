@@ -108,12 +108,12 @@ fieldset .field-box {
 }
 
 .login #login-form::before {
-    content: '';
-    background: url('logo_dark.png');
-    background-size: cover;
+    content: 'BASIC CMS';
     width: 330px;
     height: 70px;
     display: block;
+    text-align: center;
+    font-size:24px;
 }
 
 
@@ -122,4 +122,11 @@ fieldset .field-box {
 .model-image #result_list img,
 .model-carousel #result_list img {
     max-width: 200px;
+}
+
+.main_title{
+    font-size:18px;
+}
+.owner_title{
+    text-transform: capitalize;
 }
