@@ -8,8 +8,8 @@ Zarówno tworząc nowy projekt w Django jak i kopiując gotowy musimy przejść 
  - Pamiętaj aby w pierszym kroku zaznaczyć checkboxa 'Dodaj pythona do path'. Jeżeli mimo to wystepuje problem możliwe, że trzeba dodać ręcznie ściezkę w zmiennych środowiskowych systemu (Windows)
  - Jeżeli korzystasz z VS Code zainstaluj paczkę Pythona. Inaczej ***pip*** nie będzie działał w terminalu.
 
-2. Pobieramy projekt z Gitlaba:
- > git clone https://gitlab.com/frontend-ip/basic-cms.git
+2. Pobieramy projekt:
+ > git clone ********
 
 3. Instalujemy PostgreSQL oraz pgAdmin:
  - pobieramy i instalujemy https://www.postgresql.org/download/ :
