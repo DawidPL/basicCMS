@@ -1,0 +1,11 @@
+ 
+{{blog.title}}
+{% if blog.img %}
+        {% if blog.img_in_single_blog %}
+                <img src='{{blog.img.url}}' width="300px" />
+        {% endif %}
+{% endif %}
+{% if blog.content %}{{blog.content|safe}}{% endif %}
+{{blog.created}}
+
+test templatki nr 1

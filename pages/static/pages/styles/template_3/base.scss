@@ -1,0 +1,33 @@
+@import 'variables.scss', 'mixins.scss', 'nav.scss', 'home.scss', 'subpage.scss', 'contact.scss';
+
+
+html{
+    @include global_reset
+}
+.flexbox{
+    @include flexbox;
+}
+h1, h2, h3, h4, h5, h6, p, a, span{
+    font-family: $font_family;
+}
+h1{
+    font-size:$font_size__lg;
+}
+h2{
+    font-size:$font_size__lg - 4;
+}
+main{
+    min-height: calc(100vh - 70px);
+}
+.image_center{
+    text-align:center;
+}
+footer{
+    height: 30px;
+    border-top:5px solid $nav_color__background;
+    p{
+        text-align:center;
+        font-size: $font_size__md - 4;
+        padding-top:10px;
+    }
+}

@@ -1,0 +1,18 @@
+.contact_adress{
+    text-align:center;
+    h1{
+        display:none;
+    }
+    .seo-text{
+        margin:$margin_section;
+        font-size:$font_size__lg;
+    }
+    h3{
+        font-weight:400;
+        font-size:$font_size__md;
+        margin: $margin_section
+    }
+    a{
+        color:$button_color;
+    }
+}

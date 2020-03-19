@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static i18n sass_tags %}
+
+
+<!-- Single post meta section-->
+
+{% block meta_description %}
+    {% if blogpost.meta_title %}
+        <meta name="title" content="{{blogpost.meta_title}}">
+    {% endif %}
+    {% if blogpost.meta_description %}
+        <meta name="description" content="{{blogpost.meta_description}}">
+    {% endif %}
+{% endblock %}
+
+<!-- Single post scss section-->
+
+{% block scss %}
+    {% if blogpost.template and blogpost.template != homepage.template %}
+        {% for key, value in blogpost.choice_dict.items %}
+            {% if blogpost.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% elif homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <link type="text/css" href="{% sass_src 'pages/styles/main.scss' %}" rel="stylesheet" media="screen">
+    {% endif %}
+{% endblock %}
+
+<!-- Single post navbar section (same as choosen homepage template) -->
+
+{% block navbar %}
+    {% if homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_navbar.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/navbar.html' %}
+    {% endif %}
+{% endblock %}
+
+<!-- Single post content section-->
+
+{% block content %}
+    {% if blogpost.template %}
+        {% for key, value in blogpost.choice_dict.items %}
+            {% if blogpost.template == value %} {% include 'blog_templates/single_post_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
+        {% endfor %}
+    {% else %}
+        {{blogpost.title}}
+        {% if blogpost.img %}
+                {% if blogpost.img_in_single_blog %}
+                        <img src='{{blogpost.img.url}}' width="300px" />
+                {% endif %}
+        {% endif %}
+        {% if blogpost.content %}
+            {{blogpost.content|safe}}
+        {% endif %}
+        {{blogpost.created}}
+    {% endif %}
+{% endblock %}
+
+<!-- Single post footer section -->
+
+{% block footer %}
+    {% if homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_footer.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/footer.html' %}
+    {% endif %}
+{% endblock %}

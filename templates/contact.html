@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% load static i18n myfilters sass_tags %}
+
+
+<!-- Contact meta section-->
+
+{% block meta_description %}
+    {% if contact.meta_title %}
+        <meta name="title" content="{{blog.meta_title}}">
+    {% endif %}
+    {% if blog.meta_description %}
+        <meta name="description" content="{{blog.meta_description}}">
+    {% endif %}
+{% endblock %}
+
+<!-- Contact scss section-->
+
+{% block scss %}
+    {% if contact.template and contact.template != homepage.template %}
+        {% for key, value in contact.choice_dict.items %}
+            {% if contact.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% elif homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <link type="text/css" href="{% sass_src 'pages/styles/main.scss' %}" rel="stylesheet" media="screen">
+    {% endif %}
+{% endblock %}
+
+<!-- Contact recaptcha section --> 
+
+{% block recaptcha %}
+    {% if contact.form_is_active %}
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{recaptcha}}"></script>
+    <script>
+        grecaptcha.ready(function() {
+        grecaptcha.execute('{{recaptcha}}', {action: 'contact'}).then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            });
+        });
+    </script>
+    {% endif %}
+{% endblock%}
+
+<!-- Contact navbar section (same as choosen homepage template) -->
+
+{% block navbar %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_navbar.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/navbar.html' %}
+    {% endif %}
+{% endblock %}
+
+<!-- Contact content section-->
+
+{% block content %}
+
+    {% if contact.template %}
+
+        {% for key, value in contact.choice_dict.items %}
+            {% if contact.template == value %} {% include 'contact_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="contact_adress">
+            <h1>{% trans 'Kontakt' %}</h1>
+            <p class="seo-text">{% lorem 50 w %}</p>
+
+            {% if contact.company_name %}<h3>{{contact.company_name}}</h3>{% endif %}
+            {% if contact.company_address_first_line %}<p>{{contact.company_address_first_line}}</p>{% endif %}
+            {% if contact.company_address_second_line %}<p>{{contact.comapany_adress_second_line}}</p>{% endif %}
+            {% if contact.company_phone_number %}
+            <p><i class="small material-icons">call</i><a href="tel:{{contact.company_phone_number}}">{{contact.company_phone_number}}</a></p>
+            {% endif %}
+            {% if contact.company_phone_number_second %}
+            <p><i class="small material-icons">call</i><a href="tel:{{contact.company_phone_number_second}}">{{contact.company_phone_number_second}}</a></p>
+            {% endif %}
+            {% if contact.company_email %}
+            <p><i class="small material-icons">mail</i><a href="mailto:{{contact.company_email}}">{{contact.company_email}}</a></p>
+            {% endif %}
+            {% if contact.company_email_second %}
+            <p><i class="small material-icons">mail</i><a href="mailto:{{contact.company_email_second}}">{{contact.company_email_second}}</a></p>
+            {% endif %}
+        </div>
+        {% if contact.form_is_active %}
+        <div class="row flexbox">
+            <form method="post" action="{% url 'contact' %}" class="col s6">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{form.name|addclass:'first-name'}}
+                        <label for="first-name">{% trans 'Imię' %}</label>
+                    </div>
+                    <div class="input-field col s6">
+                        {{form.lastname|addclass:'last-name'}}
+                        <label for="last_name">{% trans 'Nazwisko' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{form.email|addclass:'email'}}
+                        <label for="email">{% trans 'email' %}</label>
+                    </div>
+                    <div class="input-field col s6">
+                        {{form.tel|addclass:'telephone'}}
+                        <label for="telephone">{% trans 'Numer telefonu' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{form.message|addclass:'textarea1 materialize-textarea'}}
+                        <label for="textarea1">{% trans 'Treść wiadomości' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12" align="center">
+                        <input class="btn"type="submit" value="{% trans 'wyślij' %}"/>
+                    </div>
+                </div>
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                </div>
+            </div>
+            </form>
+        </div>
+        {% endif %}
+        {% if site_settings.google_map_iframe  %}
+            <div>
+                {{site_settings.google_map_iframe|safe}}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+<!-- Contact footer section -->
+
+{% block footer %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_footer.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/footer.html' %}
+    {% endif %}
+{% endblock %}

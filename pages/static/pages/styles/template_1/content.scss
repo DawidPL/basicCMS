@@ -1,0 +1,51 @@
+// box
+
+.single_box{
+    width: 25%;
+    margin:30px;
+    text-align:center;
+    border:1px solid rgba(210,210,210,0.2);
+    border-bottom:2px solid rgba(210,210,210,0.8);
+    transition: all 0.4s;
+    background-color:#FFF;
+    &:hover{
+        box-shadow:0 4px 8px #DBDBDB;
+    }
+    h1{
+        padding:5px 0;
+    }
+    h2{
+        margin-left:5px;
+        margin-top: 10px;
+        font-size:$font_size__md - 4;
+        font-weight:600;
+        padding:10px 0;
+    }
+    p{
+        text-align:justify;
+        font-size: 16px;
+    }
+}
+.single_image{
+    box-shadow:0 4px 8px #DBDBDB;
+}
+
+// sections
+
+.section_three{
+    text-align:center;
+    padding: $padding_section;
+}
+.section_four, .section_five{
+    text-align:center;
+    padding: $padding_section;
+    p{
+        margin:0 auto;
+        width:50%;
+        padding-bottom:20px;
+        text-align:justify;
+    }
+    .image_center{
+        text-align:center;
+    }
+}

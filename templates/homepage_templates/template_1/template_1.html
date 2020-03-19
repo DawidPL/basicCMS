@@ -1,0 +1,31 @@
+<div class="flexbox">
+    <div class="{% if homepage.sort_active %}wrapper{% endif %} col s6">
+        <div class="section_one" data-sort="{{homepage.display_gallery_order}}">
+                {% for image in homepage.gallery.graphics.all %}
+                    {% if image.display %}
+                    <img src="{{image.img.url}}" height="300px"/>
+                    {% endif %}
+                {% endfor %}
+        </div>
+        <div class="section_two col s12 flexbox" data-sort="{{homepage.display_boxes_order}}">
+                {% for box in homepage.boxes.all %}
+                    {% if box.is_active %}
+                        <div class="single_box">
+                            {% if box.link %}<a href="{{box.link}}"><img src="{{ box.image.url }}" width="300px"/></a>
+                            {% else %}
+                            <img src="{{ box.image.url }}" width="300px"/>
+                            {% endif %}
+                            <{{box.title_tag}}>{{box.title|safe}}</{{box.title_tag}}>
+                            {% if box.sub_title %}<{{box.subtitle_tag}}>{{box.sub_title|safe}}</{{box.subtitle_tag}}>{% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        </div>
+        {% if homepage.content %}<div class="section_three" data-sort="{{homepage.display_content_order}}">{{homepage.content|safe}}</div>{% endif %}
+        {% if homepage.content_2 %}<div class="section_four" data-sort="{{homepage.display_content_2_order}}">{{homepage.content_2|safe}}</div>{% endif %}
+        {% if homepage.content_3 %}<div class="section_five" data-sort="{{homepage.display_content_3_order}}">{{homepage.content_3|safe}}</div>{% endif %}
+        {% if homepage.content_4 %}<div class="section_six" data-sort="{{homepage.display_content_4_order}}">{{homepage.content_4|safe}}</div>{% endif %}
+        {% if homepage.content_5 %}<div class="section_seven" data-sort="{{homepage.display_content_5_order}}">{{homepage.content_5|safe}}</div>{% endif %}
+    </div>
+</div>
+

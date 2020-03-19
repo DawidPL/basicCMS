@@ -1,0 +1,32 @@
+.single_box {
+  margin: 30px;
+  border: 1px solid rgba(210, 210, 210, 0.2);
+  border-bottom: 2px solid rgba(210, 210, 210, 0.8);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.single_box:hover {
+  -webkit-box-shadow: 0 4px 8px #DBDBDB;
+          box-shadow: 0 4px 8px #DBDBDB;
+}
+
+.single_box h3 {
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.single_box p {
+  text-align: center;
+}
+
+.single_image {
+  -webkit-box-shadow: 0 4px 8px #DBDBDB;
+          box-shadow: 0 4px 8px #DBDBDB;
+}
+
+.section_three {
+  text-align: center;
+}
+/*# sourceMappingURL=content.css.map */

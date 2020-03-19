@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static i18n sass_tags %}
+
+
+<!-- Blog meta section-->
+
+{% block meta_description %}
+    {% if site_settings.meta_title_blog %}
+        <meta name="title" content="{{site_settings.meta_title_blog }}">
+    {% endif %}
+    {% if site_settings.meta_description_blog %}
+        <meta name="description" content="{{site_settings.meta_description_blog}}">
+    {% endif %}
+{% endblock %}
+
+<!-- Blog scss section-->
+
+{% block scss %}
+    {% if sitesettings.template and sitesettings.template != homepage.template %}
+        {% for key, value in sitesettings.choice_dict.items %}
+            {% if sitesettings.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% elif homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <link type="text/css" href="{% sass_src 'pages/styles/main.scss' %}" rel="stylesheet" media="screen">
+    {% endif %}
+{% endblock %}
+
+<!-- Blog navbar section (same as choosen homepage template) -->
+
+{% block navbar %}
+    {% if homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_navbar.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/navbar.html' %}
+    {% endif %}
+{% endblock %}
+
+<!-- Blog content section-->
+
+{% block content %}
+    {% if site_settings.template %}
+        {% for key, value in sitesettings.choice_dict.items %}
+            {% if site_settings.template == value %} {% include 'blog_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
+        {% endfor %}
+    {% else %}
+        <div style="display:flex;justify-content:center; flex-wrap:wrap;">
+            {% for single_content in blogpost %}
+            <div style="max-width:30vw">
+                <h2>{{single_content.title}}</h2>
+                {% if single_content.img %}
+                    <a href='{% url "single_post" single_content.slug %}'><img src='{{single_content.img.url}}' width="300px"/></a>
+                {% endif %}
+                {% if single_content.pre_content %}
+                    <p>{{single_content.pre_content}}</p>
+                {% endif %}
+                <button><a href='{% url "single_post" single_content.slug %}'>test</a></button>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+<!-- Blog footer section -->
+
+
+{% block footer %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_footer.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/footer.html' %}
+    {% endif %}
+{% endblock %}

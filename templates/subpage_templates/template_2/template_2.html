@@ -1,0 +1,42 @@
+{% load static i18n %}
+
+    <div id="separator"></div>
+    <div class="row flexbox">
+    <div class="{% if unique_subpage.sort_active %}wrapper{% endif %} col s12 flexbox_vertical">
+            {% if unique_subpage.gallery %}
+            <div class="flexbox subpage_gallery section_one" data-sort="{{unique_subpage.display_gallery_order}}">
+            {% for image in unique_subpage.gallery.graphics.all %}
+                {% if image.display %}
+                    <div class="image_wrapper">
+                        <a href="{{image.img.url}}" data-lightbox="galeria">
+                            <img src="{{image.img.url}}" height="300px" />
+                        </a>
+                        <p>{{image.title}}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% if unique_subpage.boxes %}
+            <div class="col s6 flexbox subpage_boxes section_two" data-sort="{{unique_subpage.display_boxes_order}}">
+                {% for box in unique_subpage.boxes.all %}
+                    {% if box.is_active %}
+                        <div class="single_box">
+                            {% if box.link %}<a href="{{box.link}}"><img src="{{ box.image.url }}" width="300px"/></a>
+                            {% else %}
+                            <img src="{{ box.image.url }}" width="300px"/>
+                            {% endif %}
+                            <{{box.title_tag}}>{{box.title|safe}}</{{box.title_tag}}>
+                            {% if box.sub_title %}<{{box.subtitle_tag}}>{{box.sub_title|safe}}</{{box.subtitle_tag}}>{% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if unique_subpage.content %}<div class="content subpage_content__one section_three" data-sort="{{unique_subpage.display_content_order}}">{{unique_subpage.content|safe}}</div>{% endif %}
+            {% if unique_subpage.content_2 %}<div class="content subpage_content__two section_four" data-sort="{{unique_subpage.display_content_2_order}}">{{unique_subpage.content_2|safe}}</div>{% endif %}
+            {% if unique_subpage.content_3 %}<div class="content subpage_content__three section_five" data-sort="{{unique_subpage.display_content_3_order}}">{{unique_subpage.content_3|safe}}</div>{% endif %}
+            {% if unique_subpage.content_4 %}<div class="content subpage_content__four section_six" data-sort="{{unique_subpage.display_content_4_order}}">{{unique_subpage.content_4|safe}}</div>{% endif %}
+            {% if unique_subpage.content_5 %}<div class="content subpage_content__one section_seven" data-sort="{{unique_subpage.display_content_5_order}}">{{unique_subpage.content_5|safe}}</div>{% endif %}
+    </div>
+    </div>

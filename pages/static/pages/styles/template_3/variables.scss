@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+
+//colors
+
+$default_color: #FFF;
+$default_color__dark: #000000;
+
+$font_color: #FFF;
+$font_color__hover: #d8d8d8;
+$font_color__menu:#212529;
+$font_color__menu__hover: #212529;
+
+$button_color: #fc7c00;
+$button_color__hover: #fc9630;
+$button_color__background: #000000;
+
+$nav_color__background: #a5a2a3;
+$nav_color__border: #AFE0CE;
+
+
+$border_color: #212529;
+
+// spaces
+
+$padding_sm: 25px 0;
+$padding_md: 50px 0;
+$padding_lg: 100px 0;
+$margin_sm: 25px 0;
+$margin_md: 50px 0;
+$margin_lg: 100px 0;
+
+// sizes
+
+$font_size__sm: 10px;
+$font_size__md: 20px;
+$font_size__lg: 30px;
+
+// fonts
+$font_family: 'Sen', sans-serif;

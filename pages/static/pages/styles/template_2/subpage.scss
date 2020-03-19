@@ -1,0 +1,23 @@
+#page-id-1{
+    h1{
+        text-align: center;
+        margin: $margin_md;
+    }
+    .content{
+        p{
+            text-align: justify;
+        }
+    }
+}
+#page-id-2{
+    .subpage_gallery{
+        @include flexbox;
+        .image_wrapper{
+            padding: 50px 20px;
+            p{
+                text-align: center;
+            }
+        }
+
+    }
+}

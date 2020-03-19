@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static i18n sass_tags %}
+<!-- Subpage meta section-->
+
+{% block meta_description %}
+    {% if unique_subpage.meta_title %}
+        <meta name="title" content="{{unique_subpage.meta_title}}">
+    {% endif %}
+    {% if unique_subpage.meta_description %}
+        <meta name="description" content="{{unique_subpage.meta_description}}">
+    {% endif %}
+{% endblock %}
+
+<!-- 404 scss section-->
+
+{% block scss %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <link type="text/css" href="{% sass_src 'pages/styles/main.scss' %}" rel="stylesheet" media="screen">
+    {% endif %}
+{% endblock %}
+
+<!-- 404 navbar section (same as choosen homepage template) -->
+
+{% block navbar %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_navbar.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/navbar.html' %}
+    {% endif %}
+{% endblock %}
+
+<!-- 404 content section-->
+
+{% block content %}
+
+    <p>Przepraszamy</p>
+    <p>podstrona {{unique_subpage.slug}} nie istnieje</p>
+
+{% endblock %}
+
+<!-- 404 footer section -->
+
+
+{% block footer %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_footer.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/footer.html' %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,125 @@
+/* global styles */
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dashboard-container>div {
+    width: 100% !important;
+}
+
+.dashboard-item-content ul:not(.inline) li.contrast {
+    background: #2980B9;
+}
+
+
+/* hide models in dashboard */
+
+.dashboard-item-content ul li:nth-child(6) {
+    display: none;
+}
+
+#content .dashboard-column-wrapper:nth-child(3) .dashboard-column div:nth-child(2) {
+    display: none;
+}
+
+
+/* end */
+
+.contrast a {
+    color: #FFF !important;
+}
+
+table thead th.sortable:hover {
+    background: #e8eff4;
+}
+
+img[src$="admin/img/icon-yes.gif"],
+img[src$="admin/img/icon-yes.svg"],
+img[src$="admin/img/icon-no.gif"],
+img[src$="admin/img/icon-no.svg"],
+img[src$="admin/img/icon-unknown.gif"],
+img[src$="admin/img/icon-unknown.svg"] {
+    display: block;
+}
+
+.submit-row {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.submit-row input:hover {
+    cursor: pointer;
+}
+
+.submit-row input:first-child {
+    order: 1;
+}
+
+.submit-row p:nth-child(2) {
+    order: 4;
+}
+
+.submit-row input:nth-child(3) {
+    order: 2;
+}
+
+.submit-row input:nth-child(4) {
+    order: 3;
+}
+
+.submit-row p.deletelink-box {
+    height: 31.5px;
+    width: 100px;
+}
+
+.submit-row a.deletelink {
+    height: 31.5px;
+    margin-left: 5px;
+}
+
+.submit-row a.deletelink:hover {
+    height: 31.5px;
+}
+
+fieldset .field-box {
+    float: none;
+}
+
+.messagelist .success a {
+    color: #FFF;
+    border-bottom: 1px dashed #FFF;
+}
+
+
+/* Login page */
+
+.login .submit-row {
+    position: inherit;
+}
+
+.login #login-form {
+    padding-top: 30px;
+}
+
+.login #login-form::before {
+    content: '';
+    background: url('logo_dark.png');
+    background-size: cover;
+    width: 330px;
+    height: 70px;
+    display: block;
+}
+
+
+/* image thumbnails */
+
+.model-image #result_list img,
+.model-carousel #result_list img {
+    max-width: 200px;
+}

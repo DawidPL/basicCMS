@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand navbar-static-top">
+      {% if site_settings.logo_text and not site_settings.logo_img %}
+      <a href="{% url 'index' %}" class="brand-text">{{site_settings.logo_text}}</a>
+      {% elif site_settings.logo_img and not site_settings.logo_text %}
+      <a href="{% url 'index' %}" class="brand-logo"><img src='{{site_settings.logo_img.url}}'></a>
+      {% elif site_settings.logo_img and site_settings.logo_text %}
+      <a href="{% url 'index' %}" class="brand-text">{{site_settings.logo_text}}</a> 
+      <a href="{% url 'index' %}" class="brand-logo"><img src='{{site_settings.logo_img.url}}'></a>
+      {% endif %}
+
+      <!-- ^^ Kombinacje warunków dla loga i tytułu strony. Jeżeli jest dodany sam tytuł to pojawi się tylko tag tytułu,
+            jeżeli oba to oba, jeżeli samo logo to tylko logo. Nie potrzeba tutaj nic modyfikować. -->
+
+
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse basic-nav" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="toggle-button" href="{% url 'index' %}">MENU</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'index' %}">{% trans 'Strona główna' %}</a>
+        </li>
+
+        <!-- ^^ Bootstrapowe zwijanie/rozwijanie menu. Prosty skrypt dodano do main.js. -->
+
+        {% for parent, children in parents.items %}
+          <li class="nav-item {% if children|length %}dropdown {% endif %}">
+              <a class="nav-link {% if children|length %}dropdown-toggle{% endif %}" href="{% url 'generated_page' parent.slug %}" 
+              {% if children|length %} 
+                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+              {% endif %}>
+              {{parent.title}}</a>
+              {% if children|length %}
+                <div class="dropdown-menu">
+                  {% for child in children %}                
+                    <a class="dropdown-item" href="{% url 'generated_page' child.slug %}">{{child.title}}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+          </li>
+        {% endfor %}
+
+        <!-- ^^ Pętla po podstronach(parent) i ich dzieciach(children). Jeżeli do podstrony podpięliśmy w panelu admina
+            inne podstrony to warunek if children|length zostanie spełniony i dodadzą się klasy bootstrapa odpowiedzialne
+            za dropdown, plus podstrony te pojawią się w drzewku rodzica. Sortowanie drag&drop w panelu admina także tutaj
+            działa wg położenia - podstrony przesunięte wyżej będą wyświetlane wyżej w drzewku. -->
+
+        {% if site_settings.is_blog_active %}
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'blog' %}">{% trans 'Blog' %}</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'contact' %}">{% trans 'Kontakt' %}</a>
+        </li>
+        {% if multilanguage %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{{site_settings.site_url}}">PL</a>
+          </li>
+          {% for lang in multilanguage %}
+                    {% if lang.multilanguage_marker %}
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{{site_settings.site_url}}/{{lang.multilanguage_prefix}}">{{lang.multilanguage_prefix|upper}}</a>
+                      </li>
+                    {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <!-- ^^ Strony stałe, które nie podlegają sortowaniu. Jeżeli blog nie jest aktywny to nie pojawi się na stronie.
+            Dodawanie wielujęzyków jest na ten moment wyłączone. --> 
+      </ul>
+</nav>

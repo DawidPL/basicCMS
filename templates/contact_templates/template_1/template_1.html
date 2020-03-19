@@ -1,0 +1,68 @@
+{% load i18n myfilters sass_tags %}
+    
+        <div class="contact_adress">
+            <h1>{% trans 'Kontakt' %}</h1>
+            {% if contact.content %}<p class="seo-text">{{contact.content|safe}}</p>{% endif %}
+
+            {% if contact.company_name %}<h3>{{contact.company_name}}</h3>{% endif %}
+            {% if contact.company_address_first_line %}<p>{{contact.company_address_first_line}}</p>{% endif %}
+            {% if contact.comapany_address_second_line %}<p>{{contact.comapany_address_second_line}}</p>{% endif %}
+            {% if contact.company_phone_number %}
+            <p>tel: <a href="tel:{{contact.company_phone_number}}">{{contact.company_phone_number}}</a></p>
+            {% endif %}
+            {% if contact.company_phone_number_second %}
+            <p>tel: <a href="tel:{{contact.company_phone_number_second}}">{{contact.company_phone_number_second}}</a></p>
+            {% endif %}
+            {% if contact.company_email %}
+            <p>e-mail: <a href="mailto:{{contact.company_email}}">{{contact.company_email}}</a></p>
+            {% endif %}
+            {% if contact.company_email_second %}
+            <p>e-mail: <a href="mailto:{{contact.company_email_second}}">{{contact.company_email_second}}</a></p>
+            {% endif %}
+        </div>
+        {% if contact.form_is_active %}
+        <div class="row flexbox">
+            <form method="post" action="{% url 'contact' %}" class="col s6">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{form.name|addclass:'first-name'}}
+                        <label for="first-name">{% trans 'Imię' %}</label>
+                    </div>
+                    <div class="input-field col s6">
+                        {{form.lastname|addclass:'last-name'}}
+                        <label for="last_name">{% trans 'Nazwisko' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{form.email|addclass:'email'}}
+                        <label for="email">{% trans 'email' %}</label>
+                    </div>
+                    <div class="input-field col s6">
+                        {{form.tel|addclass:'telephone'}}
+                        <label for="telephone">{% trans 'Numer telefonu' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{form.message|addclass:'textarea1 materialize-textarea'}}
+                        <label for="textarea1">{% trans 'Treść wiadomości' %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12" align="center">
+                        <input class="btn"type="submit" value="{% trans 'wyślij' %}"/>
+                    </div>
+                </div>
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                </div>
+            </div>
+            </form>
+        </div>
+        {% endif %}
+        {% if site_settings.google_map_iframe  %}
+            <div>
+                {{site_settings.google_map_iframe|safe}}
+            </div>
+        {% endif %}

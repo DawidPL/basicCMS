@@ -1,0 +1,19 @@
+.subpage_gallery{
+    margin: $margin-section;
+    .image_wrapper{
+        width:30%;
+        margin: 20px 5px;
+        text-align:center;
+        a{
+
+        }
+        img{
+            border-bottom:15px solid $button_color;
+            max-width:400px;
+            @include prefix;
+            &:hover{
+                border-bottom:10px solid $button_color;
+            }
+        }
+    }
+}

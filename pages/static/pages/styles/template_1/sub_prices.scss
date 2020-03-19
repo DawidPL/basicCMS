@@ -1,0 +1,41 @@
+.subpage_prices{
+    h1, h2, h3{
+        font-size:$font_size__lg;
+        text-align:center;
+        margin: 20px 0;
+    }
+    h3:last-child{
+        margin-top:50px;
+    }
+    p{
+        padding:20px 30px;
+    }
+    .prices{
+        align-items:center;
+        .prices_p{
+            text-align:center;
+            width:50%;
+            p{
+                font-size:$font_size__md;
+                border-bottom:3px solid $image_color;
+                border-radius:5px;
+                color: $image_color;
+                font-weight:600;
+                width:60%;
+                margin:0 auto;
+                background-color:$button_color__background;
+                padding:20px 5px;
+            }
+        }
+        .prices_img{
+            width:50%;
+            text-align: center;
+            img{
+               width:100%;
+               height:auto;
+            }
+        }
+
+    }
+
+}

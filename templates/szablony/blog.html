@@ -1,0 +1,14 @@
+
+{% for single_post in blog %} <!-- Pętla dla każdego posta -->
+
+    <div style="max-width:30vw">
+
+        <h2>{{single_post.title}}</h2> <!-- Tytuł wpisu -->
+
+        <a href='{% url "single_blog" single_post.slug %}'><img src='{{single_post.img.url}}' width="300px"/></a> <!-- Url do wpisu oraz główna grafika -->
+
+        <p>{{single_post.pre_content}}</p> <!-- Krótki opis posta-->
+
+        <button>test</button>
+    </div>
+{% endfor %}

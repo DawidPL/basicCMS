@@ -1,0 +1,57 @@
+<!-- Karuzela templatki - wzór -->
+
+<!-- dodając do każdego stringa 'trans' w przyszłości ułatwi to translację ->
+
+{% load static i18n %} <!-- ładuje folder z plikami statycznymi i translator (na przyszłośc, póki co nie aktywny)-->
+
+{% if homepage.display_carousel %} <!-- Jeżeli wyświetlanie karuzeli jest zaznaczone w panelu to wyświetl wszystko poniżej: -->
+
+    {% for slide in homepage.carousel.all %} <!-- Pętla dla każdego slide'u -->
+
+        <li data-target="#carouselExampleCaptions" data-slide-to="{{forloop.counter0}}" class="{% if forloop.first %} active {% endif %}"></li>
+        
+        <!-- ^^  Dla karuzeli np bootstrapowej dodajemy kolejność slide'ów poprzez data-slide-to oraz dodajemy klasę active aby skrypt wiedział co ładować jako pierwsze   ^^ -->
+
+    {% endfor %}
+
+      {% for slide in homepage.carousel.all %} <!-- Pętla dla każdego slide'u -->
+
+        {% if slide.display %} <!-- Sprawdzamy czy w panelu admina slider jest jako 'aktywny' -->
+
+          <div class="carousel-item {% if forloop.first %} active {% endif %}"> <!-- Warunek jeżeli jest to pierwszy element pętli dodaj klasę 'active' -->
+
+            <img src="{{slide.img.url}}" > <!-- Z obiektu slider pobierz pole img. Pamiętajcie, że przy src dla grafiki zawsze musimy odwołać się do jej .url -->
+
+              <h2>{% trans slide.title %}</h2> <!-- Tytuł slide'u -->
+
+              {% if slide.button_name %} <!-- Sprawdzamy czy slider posiada nazwe przycisku -->
+
+                {% if slide.button_url %} <!-- Sprawdzamy czy slider posiada href, jeżeli tak to dodajemy przycisk jako link -->
+
+                    <a href="{{slide.button_url}}"class="badge badge-light">{% trans slide.button_name %}</a> <!-- Nazwa przycisku-->
+
+                {% else %}
+
+                    <p class="badge badge-light">{% trans slide.button_name %}</p>
+
+                {% endif %}
+
+              {% endif %}
+              
+              {% if slide.subtitle %}<p class="carousel_text_p">{% trans slide.subtitle %}</p> {% endif %} <!-- Tekst pod przyciskiem -->
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+{% endif %}

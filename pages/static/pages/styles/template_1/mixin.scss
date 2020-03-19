@@ -1,0 +1,22 @@
+@mixin global_html{
+    margin:0;
+    padding:0;
+    height:100%;
+    
+}
+@mixin global_a__hover{
+    text-decoration:none;
+}
+
+@mixin flexbox($content: center, $wrap: wrap){
+    display:flex;
+    justify-content:$content;
+    flex-wrap:$wrap
+}
+
+@mixin prefix($name: all, $time: 0.5s, $type: linear){
+    -moz-transition: $name $time $type; /* Firefox 4 */
+    -webkit-transition: $name $time $type; /* Safari and Chrome */
+    -o-transition: $name $time $type; /* Opera */
+    -ms-transition: $name $time $type; /* Explorer 10 */
+}

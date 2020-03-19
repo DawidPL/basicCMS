@@ -1,0 +1,51 @@
+<div class="flexbox">
+
+    {% if homepage.sort_active %}
+    <div class="wrapper col s6">
+    {% else %}
+    <div class="col s6">
+
+<!-- ^^  Jeżeli zaznaczymy, że chcemy ręcznie sortować elementy strony to wówczas doda nam się klasa 'wrapper'. 
+    Na niej operuje skrypt w main.js który będzie sortował sekcje główne ^^ -->
+
+    {% endif %}
+
+        <div class="section_one" data-sort="{{homepage.display_gallery_order}}"> <!-- data-sort pobiera pola 'kolejność wyświetlania' każdej z sekcji-->
+
+                {% for image in homepage.gallery.graphics.all %} <!-- pętla dla grafik z wybranej galerii -->
+
+                    <img src="{{image.img.url}}" data-sort="{{image.display_order}}" width="300px"/> <!-- sortowanie działa także dla grafik i dla sekcji boksów (poniżej)-->
+
+                {% endfor %}
+
+        </div>
+
+        <div class="section_two col s12 flexbox" data-sort="{{homepage.display_boxes_order}}">
+
+                {% for box in homepage.boxes.all %} <!-- pętla dla boksów -->
+
+                    {% if box.display_order %} <!-- sprawdzamy czy boks ma ustawioną jakąś wartość w polu 'kolejność wyświetlania' i jeżeli tak to sortowanie jest aktywne -->
+                        <div class="single_box" data-sort="{{box.display_order}}">
+                    {% else %}
+                        <div class="single_box">
+                    {% endif %}
+
+                            <img src="{{ box.image.url }}" width="300px"/> <!-- grafika boksa -->
+
+
+                            <{{box.title_tag}}>{{box.title}}</{{box.title_tag}}> <!-- Tag i title boxa -->
+
+                            {% if box.sub_title %}<{{box.subtitle_tag}}>{{box.sub_title}}</{{box.subtitle_tag}}>{% endif %} <!-- Warunek dodający krótki tekst do boksa razem z wybranym tagiem -->
+
+                        </div>
+                {% endfor %}
+        </div>
+
+        <div class="section_three" data-sort="{{homepage.display_content_order}}">{{homepage.content|safe}}</div> <!-- Wyświetlamy po prostu każdą sekcję WYSIWYG -->
+        <div class="section_four" data-sort="{{homepage.display_content_2_order}}">{{homepage.content_2|safe}}</div>
+        <div class="section_five" data-sort="{{homepage.display_content_3_order}}">{{homepage.content_3|safe}}</div>
+        <div class="section_six" data-sort="{{homepage.display_content_4_order}}">{{homepage.content_4|safe}}</div>
+        <div class="section_seven" data-sort="{{homepage.display_content_5_order}}">{{homepage.content_5|safe}}</div>
+        
+    </div>
+</div>

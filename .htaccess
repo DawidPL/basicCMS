@@ -1,0 +1,6 @@
+RewriteRule ^index.(php|html|htm)$ / [R=301,L]
+RewriteRule ^([a-z0-9-_]+)/index.(php|html|htm)$ /$1/ [R=301,L]
+
+RewriteRule ^blog$ blog.html [L]
+RewriteRule ^contact$ contact.html [L]   
+

@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% load staticfiles sass_tags %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Internet Plus BASIC CMS') }}{% endblock %}
+{% block extrastyle %}{{ block.super }}<link rel='stylesheet' type='text/css' href='{% static "/pages/styles/admin/custom_admin.css" %}' />{% endblock %}
+{% block branding %}
+<h1 id="site-name">
+<a href="{% url 'admin:index' %}">
+<img src="{% static '/pages/styles/admin/logo.png' %}" height="30px" />
+
+</a>
+</h1>
+{% endblock %}
+{% block nav-global %}{% endblock %}

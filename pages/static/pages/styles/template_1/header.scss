@@ -1,0 +1,55 @@
+// slider
+
+.carousel-inner{
+    max-height:700px;
+    p{
+        color:#FFF;
+    }
+}
+
+// navbar
+
+.navbar{
+    height:80px;
+    @include flexbox(center, nowrap);
+    align-items:center;
+    border-bottom:5px solid $button_color;
+    .brand-text{
+        color:$button_color;
+        font-size:$font_size__md;
+        text-transform: uppercase;
+        min-width:500px;
+        padding-left:50px;
+        &:hover{
+            @include global_a__hover
+        }
+    }
+    .brand-logo{
+        margin-left:20px;
+        img{
+            max-width:350px;
+        }
+
+    }
+    .basic-nav{
+        height:100%;
+        width:100%;
+        @include flexbox(center, nowrap);
+        align-items:center;
+        list-style:none;
+        margin-top:auto;
+        li{
+            padding:5px 15px;
+            margin:0 10px;
+            border-radius:5px;
+            transition: border 0.5s easy;
+            border: none;
+            .nav-link{
+                color:$font_color;
+                &:hover{
+                    color:$button_color__hover;
+                }
+            }
+        }
+    }
+}

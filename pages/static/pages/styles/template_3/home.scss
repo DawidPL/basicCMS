@@ -1,0 +1,34 @@
+.section_p{
+    text-align:center;
+    font-size: $font_size__md;
+    color: $default_color__dark;
+}
+.section_img{
+    text-align:center;
+}
+
+.section_two{
+    @include flexbox(space-around, wrap);
+    .single_box{
+        margin: $margin_md;
+        text-align:center;
+        font-size: $font_size__md;
+        img{
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            border-bottom:5px solid $border_color;
+        }
+    }
+}
+.section_four{
+    margin: $margin_md;
+    h1{
+        text-align:center;
+    }
+}
+.section_five{
+    margin: $margin_md;
+    h2{
+        text-align:center;
+    }
+}

@@ -1,0 +1,466 @@
+.single_box {
+  width: 25%;
+  margin: 30px;
+  text-align: center;
+  border: 1px solid rgba(210, 210, 210, 0.2);
+  border-bottom: 2px solid rgba(210, 210, 210, 0.8);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #FFF;
+}
+
+.single_box:hover {
+  -webkit-box-shadow: 0 4px 8px #DBDBDB;
+          box-shadow: 0 4px 8px #DBDBDB;
+}
+
+.single_box h1 {
+  padding: 5px 0;
+}
+
+.single_box h2 {
+  margin-left: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.single_box p {
+  text-align: justify;
+  font-size: 16px;
+}
+
+.single_image {
+  -webkit-box-shadow: 0 4px 8px #DBDBDB;
+          box-shadow: 0 4px 8px #DBDBDB;
+}
+
+.section_three {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.section_four, .section_five {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.section_four p, .section_five p {
+  margin: 0 auto;
+  width: 50%;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.section_four .image_center, .section_five .image_center {
+  text-align: center;
+}
+
+footer {
+  max-width: 100%;
+  height: 50px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 12px;
+}
+
+.carousel-inner {
+  max-height: 700px;
+}
+
+.carousel-inner p {
+  color: #FFF;
+}
+
+.navbar {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 5px solid #fc7c00;
+}
+
+.navbar .brand-text {
+  color: #fc7c00;
+  font-size: 20px;
+  text-transform: uppercase;
+  min-width: 500px;
+  padding-left: 50px;
+}
+
+.navbar .brand-text:hover {
+  text-decoration: none;
+}
+
+.navbar .brand-logo {
+  margin-left: 20px;
+}
+
+.navbar .brand-logo img {
+  max-width: 350px;
+}
+
+.navbar .basic-nav {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  margin-top: auto;
+}
+
+.navbar .basic-nav li {
+  padding: 5px 15px;
+  margin: 0 10px;
+  border-radius: 5px;
+  -webkit-transition: border 0.5s easy;
+  transition: border 0.5s easy;
+  border: none;
+}
+
+.navbar .basic-nav li .nav-link {
+  color: #6e6e6e;
+}
+
+.navbar .basic-nav li .nav-link:hover {
+  color: #fc9630;
+}
+
+.contact_adress {
+  text-align: center;
+}
+
+.contact_adress h1 {
+  display: none;
+}
+
+.contact_adress .seo-text {
+  margin: 50px 0;
+  font-size: 28px;
+}
+
+.contact_adress h3 {
+  font-weight: 400;
+  font-size: 20px;
+  margin: 50px 0;
+}
+
+.contact_adress a {
+  color: #fc7c00;
+}
+
+.subpage_prices h1, .subpage_prices h2, .subpage_prices h3 {
+  font-size: 28px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.subpage_prices h3:last-child {
+  margin-top: 50px;
+}
+
+.subpage_prices p {
+  padding: 20px 30px;
+}
+
+.subpage_prices .prices {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subpage_prices .prices .prices_p {
+  text-align: center;
+  width: 50%;
+}
+
+.subpage_prices .prices .prices_p p {
+  font-size: 20px;
+  border-bottom: 3px solid #FF8B00;
+  border-radius: 5px;
+  color: #FF8B00;
+  font-weight: 600;
+  width: 60%;
+  margin: 0 auto;
+  background-color: #000000;
+  padding: 20px 5px;
+}
+
+.subpage_prices .prices .prices_img {
+  width: 50%;
+  text-align: center;
+}
+
+.subpage_prices .prices .prices_img img {
+  width: 100%;
+  height: auto;
+}
+
+.subpage_gallery {
+  margin: 50px 0;
+}
+
+.subpage_gallery .image_wrapper {
+  width: 30%;
+  margin: 20px 5px;
+  text-align: center;
+}
+
+.subpage_gallery .image_wrapper img {
+  border-bottom: 15px solid #fc7c00;
+  max-width: 400px;
+  -moz-transition: all 0.5s linear;
+  /* Firefox 4 */
+  -webkit-transition: all 0.5s linear;
+  /* Safari and Chrome */
+  -o-transition: all 0.5s linear;
+  /* Opera */
+  -ms-transition: all 0.5s linear;
+  /* Explorer 10 */
+}
+
+.subpage_gallery .image_wrapper img:hover {
+  border-bottom: 10px solid #fc7c00;
+}
+
+.sub_about {
+  padding: 0 30px;
+}
+
+.sub_about h3 {
+  text-align: center;
+  font-size: 28px;
+  margin: 50px 0;
+}
+
+.sub_about h4 {
+  text-align: center;
+  font-size: 20px;
+  margin: 50px 0;
+}
+
+.sub_about p {
+  text-align: justify;
+}
+
+.sub_about div {
+  text-align: center;
+}
+
+.sub_about .list_p {
+  text-align: center;
+}
+
+.sub_about ul li {
+  color: #6e6e6e;
+}
+
+.sub_about img {
+  width: 40%;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+p {
+  color: #6e6e6e;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+main {
+  background-image: url("/media/uploads/2020/01/30/wynajem_pod_back_new_obszar_roboczy_1.jpg");
+  background-repeat: repeat;
+  min-height: calc(100vh - 70px);
+}
+
+.image_center {
+  text-align: center;
+}
+
+footer {
+  height: 30px;
+  border-top: 5px solid #fc7c00;
+}
+
+footer p {
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+/* special css */
+.t-site-header__menu {
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 5px solid #fc7c00;
+}
+
+@media (min-width: 767px) {
+  .t-site-header__menu {
+    height: 120px;
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+.c-nav__item {
+  color: #6e6e6e;
+  display: block;
+  font-size: .875rem;
+  padding-bottom: 7.5px;
+  padding-top: 7.5px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.c-nav__item:hover {
+  color: #fc7c00;
+  text-decoration: none;
+}
+
+@media (min-width: 767px) {
+  .c-nav__item {
+    display: inline-block;
+    margin-left: 25px;
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .c-nav {
+    display: none;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .hidden_menu {
+    display: none;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 1055px) {
+  .single_box {
+    width: 60%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 767px) {
+  .prices_img {
+    width: 60% !important;
+  }
+  .prices_p {
+    width: 100% !important;
+    margin-top: 30px;
+  }
+  .subpage_prices div:nth-of-type(2) .prices_img {
+    -webkit-box-ordinal-group: 3 !important;
+        -ms-flex-order: 2 !important;
+            order: 2 !important;
+  }
+  .subpage_gallery .image_wrapper {
+    width: 45%;
+  }
+  .subpage_gallery .image_wrapper img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 414px) {
+  .subpage_gallery .image_wrapper {
+    width: 100%;
+  }
+  .subpage_gallery .image_wrapper img {
+    width: 100%;
+    height: auto;
+  }
+  .subpage_prices h1, .subpage_prices h2, .subpage_prices h3 {
+    font-size: 20px;
+  }
+  .subpage_prices .prices .prices_p, .subpage_prices .prices .prices_img {
+    width: 100%;
+  }
+  .subpage_prices div:nth-of-type(2) .prices_img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .prices_img {
+    width: 100%;
+  }
+  .single_box {
+    width: 100%;
+  }
+  .brand-logo img {
+    width: 250px;
+    margin-left: 20px;
+  }
+  .section_four p, .section_five p {
+    width: 100%;
+  }
+  .sub_about img {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=base.css.map */

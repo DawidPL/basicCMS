@@ -1,0 +1,8 @@
+ {{blog.title}}
+        {% if blog.img_in_single_blog %}
+        <img src='{{blog.img.url}}' width="300px" />
+        {% endif %}
+        {{blog.content|safe}}
+        {{blog.created}}
+
+test templatki nr 2

@@ -1,0 +1,157 @@
+body{
+    display:flex;
+    min-height:100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    flex:1 0 auto;
+}
+h1, h2{
+    font-size:26px;
+    font-weight:600;
+}
+p{
+    text-align:justify;
+    padding:0 20px;
+    color: #193848;
+}
+img{
+    max-width:100%;
+}
+.main-image{
+    height:400px;
+    width:100%;
+}
+.seo-text{
+    font-size:20px;
+}
+#separator{
+    height:30px;
+}
+.flexbox_vertical{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+/* CAROUSEL */
+
+.carousel_text_p{
+    font-size:24px;
+    color:#FFF;
+}
+.btn_carousel{
+    background-color:#2c387e;
+    transition:all 0.5s;
+}
+.btn_carousel:hover{
+    font-size:16px;
+    padding:10px 40px 40px ;
+    background-color:#1f285a;
+}
+/* Content */
+
+.flexbox{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.flexbox .s6{
+    margin:0 auto;
+}
+
+.single_box{
+    margin:30px;
+    border:1px solid rgba(210,210,210,0.2);
+    border-bottom:2px solid rgba(210,210,210,0.8);
+    transition: all 0.4s;
+}
+.single_box:hover{
+    box-shadow:0 4px 8px rgba(210,210,210);
+}
+.single_box h3{
+    margin-left:5px;
+    font-size:18px;
+    font-weight:600;
+}
+.single_box p{
+    text-align:center;
+}
+.single_image{
+    box-shadow:0 4px 8px rgb(168, 164, 164);
+}
+
+/* Gallery */
+
+.gallery_box{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+
+/* Contact Page */
+
+.contact_adress h1{
+    font-size:28px;
+}
+.contact_adress h3{
+    font-size:24px;
+}
+.contact_adress p {
+    text-align:center;
+    font-size:16px;
+}
+/* SOCIAL ICONS */
+
+#fb_social_button a,
+#tt_social_button a,
+#ins_social_button a{
+    margin:0 6px;
+    display: block; 
+    z-index: 99999; 
+    right: 1px;  
+    position: fixed;
+} 
+
+#fb_social_button a{
+    top: 240px; 
+}
+
+#tt_social_button a{
+    top: 300px; 
+}
+
+#ins_social_button a{
+    top: 360px; 
+}
+
+#fb_social_button svg *,
+#tt_social_button svg *,
+#ins_social_button svg *{
+    pointer-events: all;
+} 
+
+#fb_social_button svg,
+#tt_social_button svg,
+#ins_social_button svg {
+    display: block; 
+    margin: 6px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    pointer-events: all;
+    height: 52px; 
+    width: 52px;
+}
+
+#fb_social_button svg:hover #front_svg_circle,
+#tt_social_button svg:hover #front_svg_circle,
+#ins_social_button svg:hover #front_svg_circle{
+    fill: rgba(255,255,255,0.2) !important;
+}
+ 
+#ins_social_button svg {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); 
+    border-radius: 50%; 
+    fill: #fff;
+}

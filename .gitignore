@@ -1,0 +1,16 @@
+*.pyc
+*~
+*.map
+.env
+
+__pycache__
+myvenv
+db.sqlite3
+/static
+/media
+/statyczna/*
+/pages/migrations/*
+!/pages/migrations/__init__.py
+.DS_Store
+.vscode
+.idea

@@ -1,0 +1,30 @@
+.sub_about{
+    padding:0 30px;
+    h3{
+        text-align: center;
+        font-size:$font_size__lg;
+        margin: $margin_section;
+    }
+    h4{
+        text-align: center;
+        font-size:$font_size__md;
+        margin: $margin_section;
+    }
+    p{
+        text-align:justify;
+    }
+    div{
+        text-align:center;
+    }
+    .list_p{
+        text-align:center;
+    }
+    ul{
+        li{
+            color: $font_color;
+        }
+    }
+    img{
+        width:40%;
+    }
+}

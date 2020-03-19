@@ -1,0 +1,166 @@
+@import 'variables.scss', 'mixin.scss', 'content.scss', 'footer.scss', 
+        'header.scss', 'contact.scss', 'sub_prices.scss', 'gallery.scss',
+        'about_us.scss', 'rwd.scss';
+
+
+html{
+    @include global_html
+}
+.flexbox{
+    @include flexbox;
+}
+p{
+    color: $font_color;
+    font-size: $font_size__md - 4;
+}
+h1{
+    font-size:$font_size__lg;
+}
+h2{
+    font-size:$font_size__lg - 4;
+}
+main{
+    background-image: url('/media/uploads/2020/01/30/wynajem_pod_back_new_obszar_roboczy_1.jpg');
+    background-repeat:repeat;
+    min-height: calc(100vh - 70px);
+}
+.image_center{
+    text-align:center;
+}
+footer{
+    height: 30px;
+    border-top:5px solid $button_color;
+    p{
+        font-size: $font_size__sm;
+        padding-top:10px;
+    }
+}
+
+/* special css */
+
+.t-site-header__menu {
+    height:70px;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    border-bottom:5px solid $button_color;
+
+}
+
+@media (min-width:767px) {
+    .t-site-header__menu {
+        height:120px;
+        margin-top: 0;
+        text-align: right;
+    }
+}
+
+.c-nav__item {
+    color: $font_color;
+    display: block;
+    font-size: .875rem;
+    padding-bottom: 7.5px;
+    padding-top: 7.5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%
+}
+
+.c-nav__item:hover {
+    color: $button_color;
+    text-decoration: none;
+}
+
+@media (min-width:767px) {
+    .c-nav__item {
+        display: inline-block;
+        margin-left: 25px;
+        width: auto
+    }
+}
+@media (max-width:900px){
+    .c-nav{
+        display:none;
+    }
+    .navbar-toggler{
+        display:block;
+    }
+}
+@media (min-width:900px){
+    .navbar-toggler{
+        display:none;
+    }
+    .hidden_menu{
+        display:none;
+    }
+}
+@media (min-width:414px) and (max-width:1055px){
+    .single_box{
+        width: 60%;
+        flex-wrap:wrap;
+    }
+    img{
+        width:100%;
+        height:auto;
+    }
+}
+
+@media (min-width:415px) and (max-width:767px){
+    .prices_img{
+        width:60% !important;
+    }
+    .prices_p{
+        width:100% !important;
+        margin-top:30px;
+    }
+    .subpage_prices div:nth-of-type(2) .prices_img{
+        order:2 !important;
+    }
+    .subpage_gallery .image_wrapper{
+        width:45%;
+        img{
+            width:100%;
+            height:auto;
+        }
+    }
+}
+@media (max-width:414px){
+    .subpage_gallery .image_wrapper{
+        width:100%;
+        img{
+            width:100%;
+            height:auto;
+        }
+    }
+    .subpage_prices{
+        h1,h2,h3{
+            font-size: $font_size__md
+        }
+        .prices{
+            .prices_p, .prices_img{
+                width:100%;
+            }
+
+        }
+        div:nth-of-type(2) .prices_img{
+            order:2;
+        }
+    }
+    .prices_img{
+        width:100%;
+    }
+    .single_box{
+        width:100%;
+    }
+    .brand-logo img{
+        width:250px;
+        margin-left:20px;
+    }
+    .section_four p, .section_five p{
+        width:100%;
+    }
+    .sub_about img{
+        width:100%;
+    }
+
+}

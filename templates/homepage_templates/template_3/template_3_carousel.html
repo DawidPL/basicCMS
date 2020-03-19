@@ -1,0 +1,41 @@
+{% load static i18n %}
+
+{% if homepage.display_carousel %}
+<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    {% for slide in homepage.carousel.all %}
+      <li data-target="#carouselExampleCaptions" data-slide-to="{{forloop.counter0}}" class="{% if forloop.first %} active {% endif %}"></li>
+    {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% for slide in homepage.carousel.all %}
+        {% if slide.is_active %}
+          <div class="carousel-item {% if forloop.first %} active {% endif %}">
+            <img src="{{slide.img.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              {% if slide.title %}<h2>{% trans slide.title %}</h2>{% endif %}
+              {% if slide.button_name %}
+                {% if slide.button_url %}
+                    <a href="{{slide.button_url}}"class="badge badge-light">{% trans slide.button_name %}</a>
+                {% else %}
+                    <p class="badge badge-light">{% trans slide.button_name %}</p>
+                {% endif %}
+              {% endif %}
+              {% if slide.subtitle %}<p class="carousel_text_p">{% trans slide.subtitle|safe %}</p> {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+{% endif %}

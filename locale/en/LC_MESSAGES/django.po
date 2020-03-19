@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-19 11:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\basic\settings.py:61
+msgid "English"
+msgstr ""
+
+#: .\basic\settings.py:62
+msgid "Polish"
+msgstr ""
+
+#: .\templates\about.html:8 .\templates\includes\header.html:10
+msgid "O Nas"
+msgstr "About"
+
+#: .\templates\contact.html:9 .\templates\includes\header.html:11
+msgid "Kontakt"
+msgstr "Contact"
+
+#: .\templates\contact.html:23
+msgid "Imię"
+msgstr "First name"
+
+#: .\templates\contact.html:27
+msgid "Nazwisko"
+msgstr "Last name"
+
+#: .\templates\contact.html:33
+msgid "email"
+msgstr "email"
+
+#: .\templates\contact.html:37
+msgid "Numer telefonu"
+msgstr "phone number"
+
+#: .\templates\contact.html:43
+msgid "Treść wiadomości"
+msgstr "text"
+
+#: .\templates\contact.html:48
+msgid "wyślij"
+msgstr ""
+
+#: .\templates\home.html:15
+msgid "hey!"
+msgstr "hello"
+
+#: .\templates\includes\carousel.html:5
+msgid "przycisk"
+msgstr "button"
+
+#: .\templates\includes\header.html:8
+msgid "Strona główna"
+msgstr "Home page"
+
+#: .\templates\includes\header.html:9 .\templates\offer.html:7
+msgid "Oferta"
+msgstr "Offer"
+
+#~ msgid "Nagłówek 1"
+#~ msgstr "Header 1"
+
+#~ msgid "Nagłówek 2"
+#~ msgstr "Header 2"
+
+#~ msgid "Pierwsza grafika"
+#~ msgstr " First image"
+
+#~ msgid "Pierwszy slide"
+#~ msgstr "Subtitle"
+
+#~ msgid "drugi slide"
+#~ msgstr "Second slide"
+
+#~ msgid "Trzeci slide"
+#~ msgstr "Third slide"

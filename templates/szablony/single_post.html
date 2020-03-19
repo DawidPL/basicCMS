@@ -1,0 +1,13 @@
+ {{blog.title}} <!-- Tytuł wpisu -->
+
+        {% if blog.img_in_single_blog %}
+        <img src='{{blog.img.url}}' width="300px" /> 
+        
+        <!-- W panelu możemy zaznaczyć opcję 'Dodaj grafikę do wpisu'. Wówczas pojawi się także w pojedynczym poście. -->
+        
+        {% endif %}
+
+
+        {{blog.content|safe}} <!-- Treść wpisu -->
+
+        {{blog.created}} <!-- Data utworzenia wpisu -->

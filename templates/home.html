@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static i18n sass_tags %}
+
+
+<!-- Homepage scss section-->
+
+{% block scss %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %}
+                <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <link type="text/css" href="{% sass_src 'pages/styles/main.scss' %}" rel="stylesheet" media="screen">
+    {% endif %}
+{% endblock %}
+
+<!-- Homepage navbar section-->
+
+{% block navbar %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_navbar.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/navbar.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+
+<!-- Homepage carousel section -->
+
+    {% block carousel %}
+        {% if homepage.template %}
+            {% for key, value in homepage.choice_dict.items %}
+                {% if homepage.template == value %} 
+                    {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_carousel.html'%}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% include 'includes/carousel.html' %}
+        {% endif %}
+    {% endblock %}
+
+<!-- Homepage body content section -->
+
+{% if homepage.template %}
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
+        {% endfor %}
+    {% else %}
+    <div class="row flexbox">
+        <div class="{% if homepage.sort_active %}wrapper{% endif %} col s12">
+            <div class="section_one" data-sort="{{homepage.display_gallery_order}}">
+                {% for image in homepage.gallery.graphics.all %}
+                    <img src="{{image.img.url}}" data-sort="{{image.display_order}}" height="300px"/>
+                {% endfor %}
+            </div>
+            <div class="section_two col s12 flexbox"  data-sort="{{homepage.display_boxes_order}}">
+                {% for box in homepage.boxes.all %}
+                    {% if box.display %}
+                        {% if box.display_order %}
+                            <div class="single_box" data-sort="{{box.display_order}}">
+                        {% else %}
+                            <div class="single_box">
+                        {% endif %}
+                                <img src="{{ box.image.url }}" width="300px"/>
+                                <{{box.title_tag}}>{{box.title}}</{{box.title_tag}}>
+                                {% if box.sub_title %}<{{box.subtitle_tag}}>{{box.sub_title}}</{{box.subtitle_tag}}>{% endif %}
+                            </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="section_three" data-sort="{{homepage.display_content_order}}">{{homepage.content|safe}}</div>
+            <div class="section_four" data-sort="{{homepage.display_content_2_order}}">{{homepage.content_2|safe}}</div>
+            <div class="section_five" data-sort="{{homepage.display_content_3_order}}">{{homepage.content_3|safe}}</div>
+            <div class="section_six" data-sort="{{homepage.display_content_4_order}}">{{homepage.content_4|safe}}</div>
+            <div class="section_seven" data-sort="{{homepage.display_content_5_order}}">{{homepage.content_5|safe}}</div>
+        </div>
+        <div class="col s12">
+            <h2 class="center">{% trans h2 %}</h2>
+            <p>{% lorem 100 w random %}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+<!-- Homepage footer section -->
+
+{% block footer %}
+    {% if homepage.template %}
+
+        {% for key, value in homepage.choice_dict.items %}
+            {% if homepage.template == value %} 
+                {% include 'homepage_templates/template_'|add:key|add:'/template_'|add:key|add:'_footer.html'%}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include 'includes/footer.html' %}
+    {% endif %}
+{% endblock %}
