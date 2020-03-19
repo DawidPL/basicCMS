@@ -31,7 +31,7 @@ upload_location_slide = UploadLocation('slides')
 
 class Project(models.Model):
 
-    dev_list = ['Dawid', 'Łukasz', 'Damian', 'Karol', 'Kamila', 'Ewelina']
+    dev_list = ['Dawid', 'Gość']
 
     title = models.CharField('Nazwa projektu', max_length=100)
     author = models.CharField('Autor', choices=choice_generator.choices_list_generator(dev_list),
