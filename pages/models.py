@@ -168,10 +168,12 @@ class BlogPost(BaseModel):
 
     def get_absolute_url(self):
         return f'/{self.slug}'
-    
 
 
 class SiteSettings(models.Model):
+    
+    choice_dict = choice_generator.choices_dict_generator(template_counter.get_count())
+
     project = models.ForeignKey('Project', verbose_name='Projekt', on_delete=models.CASCADE)
     site_url = models.CharField('Adres url witryny', max_length=200, default='localhost:8000')
     site_name = models.CharField('Nazwa witryny', max_length=255, blank=False)
@@ -180,7 +182,7 @@ class SiteSettings(models.Model):
     is_blog_active = models.BooleanField('Blog jest aktywny', default=False)
     template = models.IntegerField('Wybierz template podstrony Blog',
                                    choices=choice_generator.choices_list_generator(template_counter.get_count()),
-                                   null=False, blank=False)
+                                   null=True, blank=True)
     meta_title_blog = models.CharField('Meta title podstrony Blog', max_length=100, blank=True)
     meta_description_blog = models.TextField('Meta description podstrony Blog', blank=True)
     site_favicon = models.ImageField('Favicon', upload_to=upload_location_favicon, blank=True)

@@ -5,20 +5,20 @@
 <!-- Single post meta section-->
 
 {% block meta_description %}
-    {% if blogpost.meta_title %}
-        <meta name="title" content="{{blogpost.meta_title}}">
+    {% if post.meta_title %}
+        <meta name="title" content="{{post.meta_title}}">
     {% endif %}
-    {% if blogpost.meta_description %}
-        <meta name="description" content="{{blogpost.meta_description}}">
+    {% if post.meta_description %}
+        <meta name="description" content="{{post.meta_description}}">
     {% endif %}
 {% endblock %}
 
 <!-- Single post scss section-->
 
 {% block scss %}
-    {% if blogpost.template and blogpost.template != homepage.template %}
-        {% for key, value in blogpost.choice_dict.items %}
-            {% if blogpost.template == value %} 
+    {% if post.template and post.template != homepage.template %}
+        {% for key, value in post.choice_dict.items %}
+            {% if post.template == value %} 
                 <link href="{% sass_src 'pages/styles/template_'|add:key|add:'/base.scss' %}" rel="stylesheet" media="screen">
             {% endif %}
         {% endfor %}
@@ -50,21 +50,21 @@
 <!-- Single post content section-->
 
 {% block content %}
-    {% if blogpost.template %}
-        {% for key, value in blogpost.choice_dict.items %}
-            {% if blogpost.template == value %} {% include 'blog_templates/single_post_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
+    {% if post.template %}
+        {% for key, value in post.choice_dict.items %}
+            {% if post.template == value %} {% include 'blog_templates/single_post_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
         {% endfor %}
     {% else %}
-        {{blogpost.title}}
-        {% if blogpost.img %}
-                {% if blogpost.img_in_single_blog %}
-                        <img src='{{blogpost.img.url}}' width="300px" />
+        {{post.title}}
+        {% if post.img %}
+                {% if post.img_in_single_blog %}
+                        <img src='{{post.img.url}}' width="300px" />
                 {% endif %}
         {% endif %}
-        {% if blogpost.content %}
-            {{blogpost.content|safe}}
+        {% if post.content %}
+            {{post.content|safe}}
         {% endif %}
-        {{blogpost.created}}
+        {{post.created}}
     {% endif %}
 {% endblock %}
 

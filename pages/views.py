@@ -59,17 +59,17 @@ class BlogView(ContentMixin, View):
         return render(request, 'blog.html', context)
 
 
-class SinglePostView(ContactForm, View):
+class SinglePostView(ContentMixin, ContactForm, View):
 
     def get(self, request, slug):
 
         template_name = 'single_post.html'
-        blog = get_object_or_404(BlogPost, slug=slug)
+        post = get_object_or_404(BlogPost, slug=slug)
         context = self.get_context_data(request)
 
-        context['blog'] = blog
+        context['post'] = post
 
-        if blog.is_active:
+        if post.is_active:
             return render(request, template_name, context)
         else:
             return render(request, '404.html')

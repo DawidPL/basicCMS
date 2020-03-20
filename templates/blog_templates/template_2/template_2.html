@@ -1,1 +1,14 @@
-test2 
+<div style="display:flex;justify-content:center; flex-wrap:wrap;">
+    {% for single_content in blog %}
+    <div style="max-width:30vw">
+        <h2>{{single_content.title}}</h2>
+        {% if single_content.img %}
+            <a href='{% url "single_post" single_content.slug %}'><img src='{{single_content.img.url}}' width="300px"/></a>
+        {% endif %}
+        {% if single_content.pre_content %}
+            <p>{{single_content.pre_content}}</p>
+        {% endif %}
+        <button><a href='{% url "single_post" single_content.slug %}'>test</a></button>
+    </div>
+    {% endfor %}
+</div>

@@ -74,11 +74,11 @@
 
  - ##### Pojedynczy wpis:
 
-  ***blog.img.url*** - grafika także we wpisie 
+  ***post.img.url*** - grafika także we wpisie 
 
-  ***blog.content|safe*** - treść wpisu 
+  ***post.content|safe*** - treść wpisu 
 
-  ***blog.created*** - data dodania wpisu 
+  ***post.created*** - data dodania wpisu 
 
 ### Kontakt
 
