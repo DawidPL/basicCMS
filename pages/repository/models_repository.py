@@ -19,7 +19,6 @@ class ModelsRepository:
 
     def __init__(self):
         active_projects = Project.objects.filter(is_active=True)
-        # TODO: Tutaj najpierw powinniśmy sprawdzić, czy nie istnieje jakiś projekt i aktywowac pierwszy z brzegu, a tylko jeśli nie ma żadnego tworzyć nowy, domyślny projekt
         if len(active_projects) > 0:
             self.project = active_projects[0]
         else:
@@ -34,10 +33,6 @@ class ModelsRepository:
                                                   author='Dawid',
                                                   comment='Ten projekt został utworzony automatycznie.',
                                                   is_active=True)
-
-    '''
-    https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Singleton.html
-    '''
 
     def __new__(cls):
         if ModelsRepository.__instance is None:
