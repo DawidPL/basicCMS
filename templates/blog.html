@@ -51,12 +51,12 @@
 
 {% block content %}
     {% if site_settings.template %}
-        {% for key, value in sitesettings.choice_dict.items %}
+        {% for key, value in site_settings.choice_dict.items %}
             {% if site_settings.template == value %} {% include 'blog_templates/template_'|add:key|add:'/template_'|add:key|add:'.html' %}{% endif %}
         {% endfor %}
     {% else %}
         <div style="display:flex;justify-content:center; flex-wrap:wrap;">
-            {% for single_content in blogpost %}
+            {% for single_content in blog %}
             <div style="max-width:30vw">
                 <h2>{{single_content.title}}</h2>
                 {% if single_content.img %}
