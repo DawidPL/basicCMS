@@ -1,5 +1,9 @@
 # BASIC CMS
 
+![alt text](https://github.com/DawidPL/basicCMS/screen1.jpg)
+![alt text](https://github.com/DawidPL/basicCMS/screen2.jpg)
+![alt text](https://github.com/DawidPL/basicCMS/screen2a.jpg)
+
 Wersja 2.2.0
 
 1. Dodano podstawowe REST API.
