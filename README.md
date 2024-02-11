@@ -1,6 +1,6 @@
 # BASIC CMS
 
-System CMS do budowania i zarządzania wieloma stronami jednocześnie. Pozwala na przełączanie się pomiędzy projektami i wyświetlać wybrany/aktywny w przeglądarce. W trakcie dodawania poszczególnych elementów możemy wybrać którego projektu zmiana ma dotyczyć. System zbudowany w klasycznym Django bez DRF (mimo, że podstawową wersję dodałem w razie potrzeby). W razie potrzeby dodałem możliwość generowania statycznej wersji strony dla serwerów nie wpierających Pythona. 
+System CMS do budowania i zarządzania wieloma stronami jednocześnie. Pozwala na przełączanie się pomiędzy projektami i wyświetlać wybrany/aktywny w przeglądarce. W trakcie dodawania poszczególnych elementów możemy wybrać którego projektu zmiana ma dotyczyć. System zbudowany w klasycznym Django bez DRF (mimo, że podstawową wersję dodałem w razie potrzeby). Istnieje także możliwość generowania statycznej wersji strony dla serwerów nie wpierających Pythona. 
 
 ![alt text](https://github.com/DawidPL/basicCMS/blob/master/screen1.jpg)
 ![alt text](https://github.com/DawidPL/basicCMS/blob/master/screen2.jpg)
