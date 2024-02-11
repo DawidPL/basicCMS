@@ -1,8 +1,8 @@
 # BASIC CMS
 
-![alt text](https://github.com/DawidPL/basicCMS/screen1.jpg)
-![alt text](https://github.com/DawidPL/basicCMS/screen2.jpg)
-![alt text](https://github.com/DawidPL/basicCMS/screen2a.jpg)
+![alt text](https://github.com/DawidPL/basicCMS/blob/master/screen1.jpg)
+![alt text](https://github.com/DawidPL/basicCMS/blob/master/screen2.jpg)
+![alt text](https://github.com/DawidPL/basicCMS/blob/master/screen2a.jpg)
 
 Wersja 2.2.0
 
